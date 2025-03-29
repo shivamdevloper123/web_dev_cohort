@@ -70,4 +70,13 @@ const someMethod = arr.some((e) => e > 3)
 
 const array = [{fruits:"orange"}]
 arr[5] = 9
-console.log(arr[2])
+// console.log(arr[2])
+
+
+
+const arr4 = [1,2,3,4,5]
+const arr5 = [6,7,8,9,10]
+const arr6 = ["Ram","Shayam","Harry","Paul",true]
+
+
+// console.log(arr4.)
