@@ -124,38 +124,38 @@ function ShoppingCart() {
 //Bank Problem statement Solution
 
 
-function BankAccount(balance) {
-    // Initialize balance and transactions properties
-    this.balance = balance
-    this.transactions = []
-}
+// function BankAccount(balance) {
+//     // Initialize balance and transactions properties
+//     this.balance = balance
+//     this.transactions = []
+// }
 
-// Define deposit method on BankAccount's prototype
+// // Define deposit method on BankAccount's prototype
 
-BankAccount.prototype.deposit = function(amount){
-this.balance += amount
- this.transactions.push(`Deposited ${amount}`)
+// BankAccount.prototype.deposit = function(amount){
+// this.balance += amount
+//  this.transactions.push(`Deposited ${amount}`)
 
-}
-// Define withdraw method on BankAccount's prototype
-BankAccount.prototype.withdraw = function(amount){
+// }
+// // Define withdraw method on BankAccount's prototype
+// BankAccount.prototype.withdraw = function(amount){
 
-if(this.balance>=amount){
-    this.balance -= amount
-    this.transactions.push(`Withdraw  ${amount}`)
+// if(this.balance>=amount){
+//     this.balance -= amount
+//     this.transactions.push(`Withdraw  ${amount}`)
    
-}else{
-     this.transactions.push( "Insufficient balance")
+// }else{
+//      this.transactions.push( "Insufficient balance")
    
-  }
-}
-// Define getTransactionHistory method on BankAccount's prototype
-BankAccount.prototype.getTransactionHistory = function(){
- return this.transactions
+//   }
+// }
+// // Define getTransactionHistory method on BankAccount's prototype
+// BankAccount.prototype.getTransactionHistory = function(){
+//  return this.transactions
 
-}
-const myAccount = new BankAccount(200)
-myAccount.deposit(100)
+// }
+// const myAccount = new BankAccount(200)
+// myAccount.deposit(100)
 
 // myAccount.withdraw(50)
 
@@ -189,6 +189,52 @@ Library.prototype.findBook = function(title){
 
 const myBook = new Library()
 
-console.log(myBook.addBook("Wings"))
+// console.log(myBook.addBook("Wings"))
 
-console.log(myBook.findBook("Wings"))
+// console.log(myBook.findBook("Wings"))
+
+
+function BankAccount(accountNumber, holderName, balance) {
+    // Initialize accountNumber, holderName, and balance properties
+    this.accountNumber = accountNumber
+    this.holderName = holderName
+    this.balance = balance
+  }
+  
+  
+  // Define deposit method on BankAccount's prototype
+  BankAccount.prototype.deposit = function (amount) {
+    this.balance += amount
+  console.log(this.holderName,":after deposit balance",this.balance)
+  }
+  // Define withdraw method on BankAccount's prototype
+  BankAccount.prototype.withdraw = function (amount) {
+    if (this.balance >= amount) {
+      this.balance -= amount
+      console.log(this.holderName,":after withdraw balance",this.balance)
+  
+    } else {
+      "Insufficient balance"
+  
+    }
+  }
+  // Define transfer method on BankAccount's prototype
+  BankAccount.prototype.transfer = function (amount, targetAccount) {
+    if (this.balance >= amount) {
+      this.balance -= amount
+      targetAccount.deposit(amount)
+  
+    }
+  
+  }
+
+  const acc1 = new BankAccount(123,"rahul",100)
+  const acc2 = new BankAccount(124,"mohit",200)
+
+ acc1.deposit(100)
+ acc2.deposit(100)
+ 
+ acc1.withdraw(50)
+ acc2.withdraw(100)
+
+ acc1.transfer(100,124)
