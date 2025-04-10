@@ -1,5 +1,7 @@
-const count  = document.getElementById('count')
+// const count  = document.getElementById('count')
 
-count.addEventListener('click',function () {
-    console.log("i got clicked ")
-})
+// count.addEventListener('click',function () {
+//     console.log("i got clicked ")
+// })
+
+
